@@ -24,7 +24,7 @@ public class Boat {
     @ManyToOne(cascade = CascadeType.ALL)
     private Harbour harbour;
 
-    public Boat() {
+    public Boat(String brand, String make, String name, String image) {
     }
 
     public Boat(long id, String brand, String make, String name, String image) {

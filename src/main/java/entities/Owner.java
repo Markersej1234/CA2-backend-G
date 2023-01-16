@@ -11,8 +11,8 @@ public class Owner {
     @Id
     private long id;
     private String name;
-    private String address;
     private String phone;
+    private String address;
 
 
     public Owner() {
@@ -21,11 +21,11 @@ public class Owner {
     @ManyToMany()
     private List<Boat> boatList = new ArrayList<>();
 
-    public Owner(long id, String name, String phone, String email) {
+    public Owner(long id, String name, String phone, String address) {
         this.id = id;
         this.name = name;
         this.phone = phone;
-        this.address = email;
+        this.address = address;
     }
 
     public void addBoat(Boat boat) {
@@ -37,14 +37,6 @@ public class Owner {
         }
 
 
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public long getId() {
@@ -69,5 +61,21 @@ public class Owner {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public List<Boat> getBoatList() {
+        return boatList;
+    }
+
+    public void setBoatList(List<Boat> boatList) {
+        this.boatList = boatList;
     }
 }
