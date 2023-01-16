@@ -1,4 +1,4 @@
 package entities;
 
-public class Owner {
+public class OWNER {
 }

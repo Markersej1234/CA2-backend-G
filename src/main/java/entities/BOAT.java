@@ -1,4 +1,4 @@
 package entities;
 
-public class Boat {
+public class BOAT {
 }
