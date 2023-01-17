@@ -17,7 +17,7 @@ public class Harbour implements Serializable {
     @OneToMany(mappedBy = "harbour")
     private List<Boat> boatList;
 
-    public Harbour() {
+    public Harbour(String name, String address, int capacity) {
     }
 
     public Harbour(long id, String name, String address, int capacity) {

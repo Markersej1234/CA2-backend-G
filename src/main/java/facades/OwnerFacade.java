@@ -3,6 +3,7 @@ package facades;
 import dtos.BoatDTO;
 import dtos.OwnerDTO;
 import entities.Boat;
+
 import entities.Owner;
 
 import javax.persistence.EntityManager;
