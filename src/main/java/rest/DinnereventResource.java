@@ -36,14 +36,24 @@ public class DinnereventResource {
     }
 
     @POST
-    @Path("create")
+    @Path("createevent")
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
-    //@RolesAllowed("admin")
+   // @RolesAllowed("admin")
     public Response createEvent(DinnereventDTO dinnereventDTO) {
         dinnereventDTO = FACADE.createEvent(dinnereventDTO);
         return Response.ok().entity(GSON.toJson(dinnereventDTO)).build();
 
+    }
+
+    @DELETE
+    @Path("deleteevent/{id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    //@RolesAllowed("admin")
+    public Response deleteEvent(@PathParam("id") int id) {
+        FACADE.deleteEvent(id);
+        return Response.ok().entity(GSON.toJson(id)).build();
     }
 
 
