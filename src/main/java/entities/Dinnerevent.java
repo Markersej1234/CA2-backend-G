@@ -33,6 +33,10 @@ public class Dinnerevent implements Serializable {
         this.pricePerPerson = pricePerPerson;
     }
 
+    public Dinnerevent(Date time, String lacation, String dish, int pricePerPerson) {
+    }
+
+
     //wat?
 //    public Auction(long id, String name, String date, String time, String location) {
 //        this.id = id;
