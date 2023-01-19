@@ -32,8 +32,8 @@ public class DinnereventFacade {
 
     }
 
-    public DinnereventDTO create(DinnereventDTO pn) {
-        Dinnerevent dinnerevent = new Dinnerevent(pn.getTime(), pn.getLacation(), pn.getDish(), pn.getPricePerPerson());
+    public DinnereventDTO createEvent(DinnereventDTO pn) {
+        Dinnerevent dinnerevent = new Dinnerevent(pn.getDish(), pn.getLacation(), pn.getPricePerPerson(), pn.getTime());
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
@@ -44,9 +44,5 @@ public class DinnereventFacade {
         }
         return new DinnereventDTO(dinnerevent);
     }
-
-
-
-
 
 }

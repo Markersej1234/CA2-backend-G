@@ -14,10 +14,10 @@ public class Dinnerevent implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Date time;
-    private String lacation;
     private String dish;
+    private String lacation;
     private int pricePerPerson;
+    private Date time;
 
     @OneToMany(mappedBy = "dinnerevent")
     private List<Assignment> assignmentList;
@@ -25,27 +25,20 @@ public class Dinnerevent implements Serializable {
     public Dinnerevent() {
     }
 
-    public Dinnerevent(long id, Date time, String lacation, String dish, int pricePerPerson) {
-        this.id = id;
-        this.time = time;
-        this.lacation = lacation;
+    public Dinnerevent(String dish, String lacation, int pricePerPerson, Date time) {
         this.dish = dish;
+        this.lacation = lacation;
         this.pricePerPerson = pricePerPerson;
+        this.time = time;
     }
 
-    public Dinnerevent(Date time, String lacation, String dish, int pricePerPerson) {
+    public Dinnerevent(long id, String dish, String lacation, int pricePerPerson, Date time) {
+        this.id = id;
+        this.dish = dish;
+        this.lacation = lacation;
+        this.pricePerPerson = pricePerPerson;
+        this.time = time;
     }
-
-
-    //wat?
-//    public Auction(long id, String name, String date, String time, String location) {
-//        this.id = id;
-//        this.name = name;
-//        this.date = date;
-//        this.time = time;
-//        this.location = location;
-//    }
-
 
     public long getId() {
         return id;

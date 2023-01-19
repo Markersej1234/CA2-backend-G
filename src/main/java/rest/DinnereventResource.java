@@ -6,6 +6,7 @@ import dtos.DinnereventDTO;
 import facades.DinnereventFacade;
 import utils.EMF_Creator;
 
+import javax.annotation.security.RolesAllowed;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -16,7 +17,7 @@ import java.util.List;
 public class DinnereventResource {
 
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
-    private static final DinnereventFacade FACADE =  DinnereventFacade.getFacadeExample(EMF);
+    private static final DinnereventFacade FACADE = DinnereventFacade.getFacadeExample(EMF);
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
 
@@ -33,4 +34,18 @@ public class DinnereventResource {
         List<DinnereventDTO> rns = FACADE.getAll();
         return Response.ok().entity(GSON.toJson(rns)).build();
     }
+
+    @POST
+    @Path("create")
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    //@RolesAllowed("admin")
+    public Response createEvent(DinnereventDTO dinnereventDTO) {
+        dinnereventDTO = FACADE.createEvent(dinnereventDTO);
+        return Response.ok().entity(GSON.toJson(dinnereventDTO)).build();
+
+    }
+
+
+
 }
