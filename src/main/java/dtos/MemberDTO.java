@@ -1,7 +1,6 @@
 package dtos;
 
 import entities.Member;
-import entities.RenameMe;
 
 import java.util.ArrayList;
 import java.util.Date;

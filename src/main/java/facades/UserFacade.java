@@ -1,12 +1,13 @@
 package facades;
 
 import entities.Role;
-import entities.User;
 
+import javax.naming.AuthenticationException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import entities.User;
+//import security.errorhandling.AuthenticationException;
 
-import security.errorhandling.AuthenticationException;
 
 /**
  * @author lam@cphbusiness.dk

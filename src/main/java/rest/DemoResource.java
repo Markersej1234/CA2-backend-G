@@ -7,7 +7,6 @@ import com.google.gson.JsonParser;
 import dtos.ComboDTO;
 import dtos.PokemonDTO;
 import dtos.RandomFactDTO;
-import entities.User;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,6 +26,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
 
+import entities.User;
 import facades.UserFacade;
 import utils.EMF_Creator;
 import utils.FactFetcher;
