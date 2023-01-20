@@ -56,6 +56,18 @@ public class DinnereventResource {
         return Response.ok().entity(GSON.toJson(id)).build();
     }
 
+    @PUT
+    @Path("{id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+   // @RolesAllowed("admin")
+    public Response updateEvent(@PathParam("id") Long id, String a) {
+        DinnereventDTO dinnereventDTO = GSON.fromJson(a, DinnereventDTO.class);
+        dinnereventDTO.setId(id);
+        DinnereventDTO result = FACADE.updateEvent(dinnereventDTO);
+        return Response.ok().entity(GSON.toJson(result)).build();
+    }
+
 
 
 }

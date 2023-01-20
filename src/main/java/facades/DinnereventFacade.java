@@ -57,4 +57,19 @@ public class DinnereventFacade {
         }
 
     }
+
+    public DinnereventDTO updateEvent(DinnereventDTO pn) {
+        EntityManager em = emf.createEntityManager();
+        Dinnerevent a = (em.find(Dinnerevent.class, pn.getId()));
+        try {
+            a.setDish(pn.getDish()); a.setLacation(pn.getLacation()); a.setPricePerPerson(pn.getPricePerPerson());a.setTime(pn.getTime());
+            em.getTransaction().begin();
+            a = em.merge(a);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return new DinnereventDTO(a);
+
+    }
 }
