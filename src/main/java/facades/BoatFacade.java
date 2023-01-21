@@ -35,7 +35,7 @@ public class BoatFacade {
     }
 
     public BoatDTO createBoat(BoatDTO pn) {
-        Boat boat = new Boat(pn.getNavn());
+        Boat boat = new Boat(pn.getId(), pn.getNavn());
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
@@ -45,6 +45,35 @@ public class BoatFacade {
             em.close();
         }
         return new BoatDTO(boat);
+    }
+
+    public void deleteBoat(int pn) {
+        EntityManager em = emf.createEntityManager();
+        Boat a = (em.find(Boat.class, (int)pn));
+        try {
+            em.getTransaction().begin();
+            em.remove(a);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+
+    }
+
+    public BoatDTO updateBoat(BoatDTO pn) {
+        EntityManager em = emf.createEntityManager();
+        Boat a = (em.find(Boat.class, pn.getId()));
+        try {
+            a.setNavn(pn.getNavn());
+            //måske add get set id
+            em.getTransaction().begin();
+            a = em.merge(a);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return new BoatDTO(a);
+
     }
 
 }

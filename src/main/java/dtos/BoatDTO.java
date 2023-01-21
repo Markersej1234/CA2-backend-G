@@ -6,7 +6,7 @@ import java.util.List;
 
 public class BoatDTO {
 
-    private long id;
+    private int id;
     private String navn;
 
 
@@ -15,19 +15,19 @@ public class BoatDTO {
         this.navn = rm.getNavn();
     }
 
-    public BoatDTO(long id, String navn) {
+    public BoatDTO() {
+    }
+
+    public BoatDTO(int id, String navn) {
         this.id = id;
         this.navn = navn;
     }
 
-    public BoatDTO() {
-    }
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -38,7 +38,6 @@ public class BoatDTO {
     public void setNavn(String navn) {
         this.navn = navn;
     }
-
 
     public static List<BoatDTO> getDtos(List<Boat> rms) {
         List<BoatDTO> rmdtos = new ArrayList<>();

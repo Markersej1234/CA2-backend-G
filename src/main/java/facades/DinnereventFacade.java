@@ -1,8 +1,8 @@
 package facades;
 
-import dtos.BoatDTO;
+
 import dtos.DinnereventDTO;
-import entities.Boat;
+
 import entities.Dinnerevent;
 
 import javax.persistence.EntityManager;

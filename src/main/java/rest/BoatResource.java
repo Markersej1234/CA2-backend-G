@@ -8,6 +8,7 @@ import facades.BoatFacade;
 import facades.DinnereventFacade;
 import utils.EMF_Creator;
 
+import javax.annotation.security.RolesAllowed;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -43,10 +44,35 @@ public class BoatResource {
     @Path("create")
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
-    // @RolesAllowed("admin")
+   @RolesAllowed("admin")
     public Response createBoat(BoatDTO boatDTO) {
         boatDTO = FACADE.createBoat(boatDTO);
         return Response.ok().entity(GSON.toJson(boatDTO)).build();
-
     }
+
+
+
+    @DELETE
+    @Path("deleteevent/{id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    @RolesAllowed("admin")
+    public Response deleteBoat(@PathParam("id") int id) {
+        FACADE.deleteBoat(id);
+        return Response.ok().entity(GSON.toJson(id)).build();
+    }
+
+    @PUT
+    @Path("{id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    @RolesAllowed("admin")
+    public Response updateBoat(@PathParam("id") int id, String a) {
+        BoatDTO boatDTO = GSON.fromJson(a, BoatDTO.class);
+        boatDTO.setId(id);
+        BoatDTO result = FACADE.updateBoat(boatDTO);
+        return Response.ok().entity(GSON.toJson(result)).build();
+    }
+
+
 }

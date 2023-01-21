@@ -10,27 +10,29 @@ public class Boat {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
     private String navn;
 
     public Boat() {
     }
 
-    public Boat(long id, String navn) {
+//    public Boat(long id, String navn) {
+//        this.id = id;
+//        this.navn = navn;
+//    }
+
+
+    public Boat(int id, String navn) {
         this.id = id;
         this.navn = navn;
     }
 
-    public Boat(String navn) {
-        this.navn = navn;
-    }
 
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
