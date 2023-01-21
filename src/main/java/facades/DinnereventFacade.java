@@ -1,6 +1,8 @@
 package facades;
 
+import dtos.BoatDTO;
 import dtos.DinnereventDTO;
+import entities.Boat;
 import entities.Dinnerevent;
 
 import javax.persistence.EntityManager;
@@ -31,6 +33,7 @@ public class DinnereventFacade {
         return DinnereventDTO.getDtos(rms);
 
     }
+
 
     public DinnereventDTO createEvent(DinnereventDTO pn) {
         Dinnerevent dinnerevent = new Dinnerevent( pn.getLacation(), pn.getDish(), pn.getPricePerPerson(), pn.getTime());

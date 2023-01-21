@@ -1,6 +1,8 @@
 package facades;
 
+import dtos.DinnereventDTO;
 import dtos.MemberDTO;
+import entities.Dinnerevent;
 import entities.Member;
 
 import javax.persistence.EntityManager;
@@ -23,6 +25,7 @@ public class MemberFacade {
         }
         return instance;
     }
+
 
 
     public void deleteMember(int pn) {
