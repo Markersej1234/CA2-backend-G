@@ -33,7 +33,7 @@ public class DinnereventFacade {
     }
 
     public DinnereventDTO createEvent(DinnereventDTO pn) {
-        Dinnerevent dinnerevent = new Dinnerevent(pn.getDish(), pn.getLacation(), pn.getPricePerPerson(), pn.getTime());
+        Dinnerevent dinnerevent = new Dinnerevent( pn.getLacation(), pn.getDish(), pn.getPricePerPerson(), pn.getTime());
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();

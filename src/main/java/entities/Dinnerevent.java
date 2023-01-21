@@ -25,9 +25,9 @@ public class Dinnerevent implements Serializable {
     public Dinnerevent() {
     }
 
-    public Dinnerevent(String dish, String lacation, int pricePerPerson, Date time) {
-        this.dish = dish;
+    public Dinnerevent(String lacation, String dish, int pricePerPerson, Date time) {
         this.lacation = lacation;
+        this.dish = dish;
         this.pricePerPerson = pricePerPerson;
         this.time = time;
     }
