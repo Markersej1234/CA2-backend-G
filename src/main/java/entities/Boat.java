@@ -1,11 +1,14 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Objects;
+
+import static java.awt.AWTEventMulticaster.add;
 
 @Entity
+//Til setUp I Test
+@NamedQuery(name = "Boat.deleteAllRows", query = "DELETE from Boat ")
 public class Boat {
     private static final long serialVersionUID = 1L;
     @Id
@@ -15,11 +18,6 @@ public class Boat {
 
     public Boat() {
     }
-
-//    public Boat(long id, String navn) {
-//        this.id = id;
-//        this.navn = navn;
-//    }
 
 
     public Boat(int id, String navn) {
@@ -43,4 +41,6 @@ public class Boat {
     public void setNavn(String navn) {
         this.navn = navn;
     }
+
+
 }

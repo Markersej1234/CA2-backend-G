@@ -31,7 +31,6 @@ public class BoatResource {
     }
 
 
-
     @GET
     @Path("all")
     @Produces({MediaType.APPLICATION_JSON})
@@ -53,7 +52,7 @@ public class BoatResource {
 
 
     @DELETE
-    @Path("deleteevent/{id}")
+    @Path("delete/{id}")
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
     @RolesAllowed("admin")

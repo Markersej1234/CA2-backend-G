@@ -15,6 +15,15 @@ public class BoatFacade {
     public BoatFacade() {
     }
 
+    public static BoatFacade getInstance(EntityManagerFactory _emf) {
+        if (instance == null) {
+            emf = _emf;
+            instance = new BoatFacade();
+        }
+        return instance;
+    }
+
+
     private static BoatFacade instance;
     private static EntityManagerFactory emf;
 
