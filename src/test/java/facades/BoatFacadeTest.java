@@ -72,5 +72,12 @@ class BoatFacadeTest {
 
     @Test
     void updateBoat() {
+        Boat boat = new Boat(0, "email");
+        BoatDTO boatDTO = facade.createBoat(new BoatDTO(boat));
+
+        Boat boat1 = new Boat(boatDTO.getId(),"Hans");
+
+
+        assertEquals(boat1.getNavn(), facade.updateBoat(new BoatDTO(boat1)).getNavn());
     }
 }
