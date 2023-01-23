@@ -27,5 +27,29 @@ Content-Type: application/json
 "deckSize": "10"
 }
 
+### Get boat
+GET http://localhost:8080/CA2_war_exploded/api/boat/all
+Accept: application/json
+
+### Create boat
+POST http://localhost:8080/CA2_war_exploded/api/boat/create
+Content-Type: application/json
+
+{
+  "navn": "Dorte"
+}
+
+### Edit boat
+//udkommenter adminfilter i ressource og redepliy for at teste
+PUT http://localhost:8080/CA2_war_exploded/api/boat/1
+Content-Type: application/json
+
+{
+  "navn": "patrick"
+}
+
+### Delete boat by id
+DELETE http://localhost:8080/CA2_war_exploded/api/boat/1011
+
 
 

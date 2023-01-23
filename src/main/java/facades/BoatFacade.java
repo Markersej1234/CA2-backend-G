@@ -1,9 +1,8 @@
 package facades;
 
 import dtos.BoatDTO;
-import dtos.DinnereventDTO;
 import entities.Boat;
-import entities.Dinnerevent;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -58,7 +57,7 @@ public class BoatFacade {
 
     public void deleteBoat(int pn) {
         EntityManager em = emf.createEntityManager();
-        Boat a = (em.find(Boat.class, (int)pn));
+        Boat a = (em.find(Boat.class, (int) pn));
         try {
             em.getTransaction().begin();
             em.remove(a);
@@ -69,12 +68,13 @@ public class BoatFacade {
 
     }
 
+
+
     public BoatDTO updateBoat(BoatDTO pn) {
         EntityManager em = emf.createEntityManager();
         Boat a = (em.find(Boat.class, pn.getId()));
         try {
             a.setNavn(pn.getNavn());
-            //måske add get set id
             em.getTransaction().begin();
             a = em.merge(a);
             em.getTransaction().commit();
@@ -83,6 +83,17 @@ public class BoatFacade {
         }
         return new BoatDTO(a);
 
+    }
+
+    //Til createBoatTest
+    public long getBoatCount() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            long BoatCount = (long) em.createQuery("SELECT COUNT(p) FROM Boat p").getSingleResult();
+            return BoatCount;
+        } finally {
+            em.close();
+        }
     }
 
 }

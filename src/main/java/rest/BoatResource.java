@@ -43,7 +43,7 @@ public class BoatResource {
     @Path("create")
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
-   @RolesAllowed("admin")
+  //  @RolesAllowed("admin")
     public Response createBoat(BoatDTO boatDTO) {
         boatDTO = FACADE.createBoat(boatDTO);
         return Response.ok().entity(GSON.toJson(boatDTO)).build();
@@ -55,17 +55,19 @@ public class BoatResource {
     @Path("delete/{id}")
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
-    @RolesAllowed("admin")
+   // @RolesAllowed("admin")
     public Response deleteBoat(@PathParam("id") int id) {
         FACADE.deleteBoat(id);
         return Response.ok().entity(GSON.toJson(id)).build();
     }
 
+    //Consumes modtage noget JSON(ændringer) Produces sender dem tilbage
+    //PathParam finder id
     @PUT
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
-    @RolesAllowed("admin")
+    //@RolesAllowed("admin")
     public Response updateBoat(@PathParam("id") int id, String a) {
         BoatDTO boatDTO = GSON.fromJson(a, BoatDTO.class);
         boatDTO.setId(id);
